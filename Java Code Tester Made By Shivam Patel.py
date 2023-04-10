@@ -31,6 +31,18 @@ class Root(Tk):
         Shivam.button2 = ttk.Button(Shivam.labelFrame2, text = "Done",command = Shivam.destroy)
         Shivam.button2.grid(column = 3, row = 1)
 
+        Shivam.text_area = Text(Shivam, height=5, width=20, font=("",15))
+        Shivam.text_area.grid()
+        
+        Shivam.button2 = ttk.Button(Shivam.labelFrame2, text = "Enter Cmd Args (if any)\n   [Before Running]",command = Shivam.Input)
+        Shivam.button2.grid(column = 3, row = 4)
+
+        Shivam.button2 = ttk.Button(Shivam.labelFrame2, text = "Compile",command = Shivam.compile)
+        Shivam.button2.grid(column = 3, row = 2)
+
+        Shivam.button2 = ttk.Button(Shivam.labelFrame2, text = "Run",command = Shivam.run)
+        Shivam.button2.grid(column = 3, row = 3)
+
     def codefileDialog(Shivam):
         
         Shivam.filename = filedialog.askopenfilename( title = "Select A File", filetype =[("Java code files","*.java")])
@@ -39,7 +51,11 @@ class Root(Tk):
         Shivam.label.grid(column = 1, row = 3)
         Shivam.label.configure(text = Shivam.filename)
 
-        os.system(f'javac "{Shivam.filename}"')
+        global file
+        file=Shivam.filename
+        
+    def compile(Shivam):
+        os.system(f'javac "{file}"')
 
     def classfileDialog(Shivam):
          
@@ -50,8 +66,16 @@ class Root(Tk):
          Shivam.label.configure(text = Shivam.filename)
          
          filepath = Shivam.filename[:-6]
+         
+         global filename
          filename = filepath.split('/')[-1]
-         os.system(f'java "{filename}"')
+         
+    def run(Shivam): 
+         os.system(f'java "{filename}" {Input}')
+         
+    def Input(Shivam):
+         global Input
+         Input = Shivam.text_area.get("1.0", "end-1c")
  
 root = Root()
 root.mainloop()
