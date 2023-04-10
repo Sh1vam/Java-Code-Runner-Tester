@@ -1,6 +1,7 @@
 # Java-Code-Runner-Tester
+
 Compile &amp; Run Java code Just by Browsing It.
 
-Browse code Using Tkinter Python See the output on console
+Browse code Using Tkinter Python See the output on console command line args can be taken in text box
 
-can not run code which require command line args Example java Calc 1 + 2
+

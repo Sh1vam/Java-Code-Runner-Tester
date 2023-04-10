@@ -2,7 +2,7 @@ import os
 from tkinter import *
 from tkinter import ttk
 from tkinter import filedialog
-#FINAL VERSION
+
 class Root(Tk):
     
     def __init__(Shivam):
@@ -55,8 +55,21 @@ class Root(Tk):
         file=Shivam.filename
         
     def compile(Shivam):
-        os.system(f'javac "{file}"')
-
+        
+         try :
+             print("\n")
+             os.system(f'javac "{file}"')
+             print("\n")
+         except :
+             print("\n")
+             path=file[:-(len(file.split('/')[-1]))]
+             os.system(f'javac -p "{path}" "{file}"')
+             print("\n")
+         else :
+             print("\n")
+         finally:
+             print("\n")
+             
     def classfileDialog(Shivam):
          
          Shivam.filename = filedialog.askopenfilename( title = "Select A File", filetype =[("Java class files","*.class")])
@@ -70,8 +83,20 @@ class Root(Tk):
          global filename
          filename = filepath.split('/')[-1]
          
-    def run(Shivam): 
-         os.system(f'java "{filename}" {Input}')
+    def run(Shivam):
+        
+         try :
+             print("\n")
+             os.system(f'java "{filename}" {Input}')
+             print("\n")
+         except :
+             print("\n")
+             os.system(f'java "{filename}"')
+             print("\n")
+         else :
+             print("\n")
+         finally:
+             print("\n")
          
     def Input(Shivam):
          global Input
