@@ -28,7 +28,7 @@ class Root(Tk):
         Shivam.button = ttk.Button(Shivam.labelFrame, text = "Browse A Java Class File\n [Must contain main()]",command = Shivam.classfileDialog)
         Shivam.button.grid(column = 1, row = 2)
         
-        Shivam.button2 = ttk.Button(Shivam.labelFrame2, text = "Done",command = Shivam.destroy)
+        Shivam.button2 = ttk.Button(Shivam.labelFrame2, text = "Close",command = Shivam.destroy)
         Shivam.button2.grid(column = 3, row = 1)
 
         Shivam.text_area = Text(Shivam, height=5, width=20, font=("",15))
