@@ -62,9 +62,6 @@ class Root(Tk):
              print("\n")
          except :
              print("\n")
-             path=file[:-(len(file.split('/')[-1]))]
-             os.system(f'javac -p "{path}" "{file}"')
-             print("\n")
          else :
              print("\n")
          finally:
@@ -82,18 +79,25 @@ class Root(Tk):
          
          global filename
          filename = filepath.split('/')[-1]
+
+         global path
+         path=filepath[:-(len(filename.split('/')[-1]))]
+
          
     def run(Shivam):
         
+         #print(f'java -cp "{path}" {filename}')
          try :
              print("\n")
-             os.system(f'java "{filename}" {Input}')
+             os.system(f'java -cp "{path}" {filename} {Input}')
              print("\n")
          except :
              print("\n")
-             os.system(f'java "{filename}"')
+             os.system(f'java -cp "{path}" {filename}')
              print("\n")
          else :
+             print("\n")
+             
              print("\n")
          finally:
              print("\n")
