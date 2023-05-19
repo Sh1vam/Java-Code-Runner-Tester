@@ -35,7 +35,7 @@ class Root(Tk):
         Shivam.text_area.grid()
         
         Shivam.button2 = ttk.Button(Shivam.labelFrame2, text = "Enter Cmd Args (if any)\n   [Before Running]",command = Shivam.Input)
-        Shivam.button2.grid(column = 3, row = 4)
+        Shivam.button2.grid(column = 3, row = 5)
 
         Shivam.button2 = ttk.Button(Shivam.labelFrame2, text = "Compile",command = Shivam.compile)
         Shivam.button2.grid(column = 3, row = 2)
@@ -43,6 +43,8 @@ class Root(Tk):
         Shivam.button2 = ttk.Button(Shivam.labelFrame2, text = "Run",command = Shivam.run)
         Shivam.button2.grid(column = 3, row = 3)
 
+        Shivam.button2 = ttk.Button(Shivam.labelFrame2, text = "Clear",command = Shivam.Clean)
+        Shivam.button2.grid(column = 3, row = 4)
     def codefileDialog(Shivam):
         
         Shivam.filename = filedialog.askopenfilename( title = "Select A File", filetype =[("Java code files","*.java")])
@@ -53,6 +55,8 @@ class Root(Tk):
 
         global file
         file=Shivam.filename
+    def Clean(Shivam):
+        os.system("cls")
         
     def compile(Shivam):
         
